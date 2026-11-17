@@ -4,19 +4,31 @@ Finds the secrets and hygiene disasters in your repo **before** someone else
 does. Read-only by design: it reports and tells you exactly how to fix things,
 but never rewrites history or deletes files for you.
 
+**Go edition** — single compiled binary, no runtime needed.
+
 ## Usage
 
 ```bash
-npx repo-sanitizer              # scan tracked + untracked files
-npx repo-sanitizer --history    # also sweep all of git history (slower)
-npx repo-sanitizer --json       # CI-friendly output
+# from source (requires Go 1.22+)
+go install github.com/Arch087146/repo-sanitizer@latest
+
+# or grab a prebuilt binary from GitHub Releases
+# or build locally
+git clone https://github.com/Arch087146/repo-sanitizer && cd repo-sanitizer
+go build -o repo-sanitizer .
+```
+
+```bash
+repo-sanitizer .              # scan tracked + untracked files
+repo-sanitizer . --history    # also sweep all of git history (slower)
+repo-sanitizer . --json       # CI-friendly output
 ```
 
 Exits with code **1** on any HIGH-severity finding — drop it straight into CI:
 
 ```yaml
 - name: secrets check
-  run: npx repo-sanitizer --history
+  run: repo-sanitizer . --history
 ```
 
 ## What it detects
