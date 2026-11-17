@@ -42,7 +42,7 @@ is the only real fix; `git filter-repo` just removes the evidence.
 
 ## Pairs well with
 
-- [`git-regret`](https://github.com/) — proves your hacks were regrets
-- [`repo-roast`](https://github.com/) — roasts the rest of your repo
+- [`git-regret`](https://github.com/Arch087146/git-regret) — proves your hacks were regrets
+- [`repo-roast`](https://github.com/Arch087146/repo-roast) — roasts the rest of your repo
 
 MIT
